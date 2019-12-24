@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
 class EditPage extends Component {
     render() {
@@ -9,5 +10,8 @@ class EditPage extends Component {
         );
     }
 }
+const mapStateToProps = (reduxState) =>({
+    reduxState,
+})
 
-export default EditPage;
+export default connect(mapStateToProps) (EditPage);
