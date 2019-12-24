@@ -16,6 +16,7 @@ import createSagaMiddleware from 'redux-saga';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovieSaga);
     yield takeEvery('GET_DETAIL', getDetailSaga);
+    yield takeEvery('UPDATE_MOVIES', updateMovieSaga);
 
 }
 
@@ -38,6 +39,16 @@ function* getDetailSaga(action) {
     catch (err) {
         console.log('error from getDetailSaga', err);
         
+    }
+}
+
+function* updateMovieSaga(){
+    try{
+        yield axios.put('/api/movies', action.payload);
+        console.log('in updateMovies:',action.payload);
+    }
+    catch(err){
+        console.log('error from updateMovieSaga', err);
     }
 }
 
