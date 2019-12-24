@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
 class Detailspage extends Component {
 
@@ -28,5 +29,8 @@ class Detailspage extends Component {
         );
     }
 }
+const mapStatetoProps = reduxState => ({
+    reduxState
+})
 
-export default Detailspage;
+export default connect(mapStatetoProps) (Detailspage);
