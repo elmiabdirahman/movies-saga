@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import DetailsPage from '../Detailspage/Detailspage';
 
 import Movies from '../Movies/Movies'
 
@@ -12,6 +13,7 @@ class App extends Component {
         <p>Empty Page</p>
         <Router>
           <Route path='/' exact component={Movies}/>
+          <Route path='/:id' exact component={DetailsPage}/>
         </Router>
       </div>
     );
