@@ -42,7 +42,7 @@ function* getDetailSaga(action) {
     }
 }
 
-function* updateMovieSaga(){
+function* updateMovieSaga(action){
     try{
         yield axios.put('/api/movies', action.payload);
         console.log('in updateMovies:',action.payload);
