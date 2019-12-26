@@ -22,7 +22,7 @@ function* rootSaga() {
 
 function* getMovieSaga(){
     try{
-        const response = yield axios.get('/api/movies');
+        const response = yield axios.get('/movies');
         console.log(response.data); 
         yield put({ type:'SET_MOVIES', payload: response.data})
     }catch(error){
@@ -32,7 +32,7 @@ function* getMovieSaga(){
 
 function* getDetailSaga(action) {
     try{
-        const response = yield axios.get('/api/movies/'+ action.payload.id);
+        const response = yield axios.get('/movies/'+ action.payload.id);
         console.log(response.data); 
         yield put({ type:'SET_GENRES', payload: response.data})
     }
@@ -44,7 +44,7 @@ function* getDetailSaga(action) {
 
 function* updateMovieSaga(action){
     try{
-        yield axios.put('/api/movies', action.payload);
+        yield axios.put('/movies', action.payload);
         console.log('in updateMovies:',action.payload);
     }
     catch(err){
